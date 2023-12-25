@@ -160,7 +160,7 @@ function guess() {
 
   if (checkDLC(todayItem) === checkDLC(guessed)) {
     entire.innerHTML += `<div class="lil correct"><span class="innertext">${checkDLC(
-      entire,
+      guessed,
     )}</span></div> `;
   } else {
     entire.innerHTML += `<div class="lil wrong"><span class="innertext">${checkDLC(
