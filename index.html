@@ -26,8 +26,17 @@
         padding: 0;
       }
 
+      .container {
+        width: 60vw;
+        max-width: 100px;
+        min-width: 320px;
+        left: 50%;
+        margin: auto;
+      }
+      
       #title {
-        margin-top: 100px;
+        width: 100%;
+        margin-top: 125px;
         margin-bottom: 30px;
       }
 
@@ -118,7 +127,7 @@
         padding: 10px;
         width: 70px;
         height: 70px;
-        background-color: rgba(255, 255, 255, 0);
+        background-color: rgba(20, 160, 20, 0);
         background-image: url("src/box.webp");
         background-size: cover;
       }
@@ -165,8 +174,8 @@
         background-color: rgba(255, 255, 255, 0);
         border: none;
         font-size: 30px;
-        width: 350px;
-        height: 165px;
+        width: 400px;
+        height: 190px;
         text-align: center;
         background-image: url("src/input.webp");
         background-size: cover;
@@ -205,8 +214,8 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        left: 47%;
-        transform: translateX(-50%);
+        left: 50%;
+        transform: translateX(-65%);
         background-color: rgba(255, 255, 255, 0.8);
         padding: 10px;
         border-radius: 5px;
@@ -233,7 +242,9 @@
     <title>Index</title>
   </head>
   <body>
-    <img src="src/title.webp" alt="TBOIDLE" id="title" />
+    <div class="container">
+      <img src="src/title.webp" alt="TBOIDLE" id="title" />
+    </div>
     <div id="countdown"></div>
     <div id="game"></div>
     <script src="index.js"></script>
