@@ -20,12 +20,16 @@
         padding: 0;
       }
 
-      #title {
-        margin-top: 115px;
-        margin-bottom: 30px;
+      .container {
         width: 60vw;
         max-width: 100px;
         min-width: 320px;
+      }
+      
+      #title {
+        width: 100%;
+        margin-top: 115px;
+        margin-bottom: 30px;
       }
 
       #guesses {
@@ -210,7 +214,9 @@
     <title>Index</title>
   </head>
   <body>
-    <img src="src/title.webp" alt="TBOIDLE" id="title" />
+    <div class="container">
+      <img src="src/title.webp" alt="TBOIDLE" id="title" />
+    </div>
     <div id="countdown"></div>
     <div id="game"></div>
     <script src="index.js"></script>
