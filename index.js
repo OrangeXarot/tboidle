@@ -57,8 +57,11 @@ updateCountdown();
 
 let times = 0;
 GAME.innerHTML = `
-<input type="text" name="guess" id="guess" onkeyup="tooltip()"  onkeypress="handleKeyPress(event)" />
-<button onclick="guess()" id="firstsub">submit</button>
+<div class="firstinsert">
+  <input type="text" name="guess" id="guess" onkeyup="tooltip()" placeholder="Enter Item Here" onkeypress="handleKeyPress(event)" />
+  <img onclick="guess()" id="firstsub" src="src/button.webp">
+</div>
+
 <div id="tooltip"></div>
 <div id="guesses"></div>
 <div id="old"></div>
@@ -110,13 +113,17 @@ function guess() {
 
   guesses.innerHTML = "";
 
+  let undertitle = guessed.title.replace(/ /g, "_");
+
+  let imgloc = `src/all_items/Collectible_${undertitle}_icon.png`;
+
   times++;
   guesses.innerHTML = `<div class="entire"></div>`;
   let entire = document.querySelector(".entire");
   if (todayItem.title === guessed.title) {
-    entire.innerHTML += `<div class="lil correct"><span class="innertext">${guessed.title}</span></div> `;
+    entire.innerHTML += `<div class="lil correct"><span class="innertext"><img class='lilicons' src="${imgloc}"></span></div> `;
   } else {
-    entire.innerHTML += `<div class="lil wrong"><span class="innertext">${guessed.title}</span></div> `;
+    entire.innerHTML += `<div class="lil wrong"><span class="innertext"><img class='lilicons' src="${imgloc}"></span></div> `;
   }
   if (todayItem.type === guessed.type) {
     entire.innerHTML += `<div class="lil correct"><span class="innertext">${guessed.type}</span></div> `;
@@ -190,7 +197,10 @@ function tooltip() {
   for (let i = 0; i < items.length; i++) {
     if (items[i].title.toLowerCase().includes(guess.value.toLowerCase())) {
       tooltip.style.visibility = "visible";
-      tooltip.innerHTML += `<span onclick="selectOption(${i})" class="selected">${items[i].title}</span> <br />`;
+      let undertitle = items[i].title.replace(/ /g, "_");
+      let imgloc = `src/all_items/Collectible_${undertitle}_icon.png`;
+
+      tooltip.innerHTML += `<span onclick="selectOption(${i})" class="selected"><img src="${imgloc}">${items[i].title}</span>`;
       counter++;
       if (counter >= 5) {
         break;
