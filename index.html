@@ -193,6 +193,14 @@
         transition: opacity 1s ease 3s;
         font-size: 30px;
       }
+
+      #countdown {
+        font-size: 30px;
+        position: absolute;
+        top: 40px;
+        right: 20px;
+        transform: rotate(13deg);
+      }
     </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1" />
@@ -200,6 +208,7 @@
   </head>
   <body>
     <img src="src/title.webp" alt="TBOIDLE" id="title" />
+    <div id="countdown"></div>
     <div id="game"></div>
     <script src="index.js"></script>
   </body>

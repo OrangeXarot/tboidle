@@ -22,6 +22,39 @@ fetch("items.json")
     console.error("Error:", error);
   });
 
+function updateCountdown() {
+  // Get the current time
+  var now = new Date();
+
+  // Set the target time to midnight
+  var targetMidnight = new Date(now);
+  targetMidnight.setHours(24, 0, 0, 0);
+
+  // Calculate the time difference in milliseconds
+  var timeDiff = targetMidnight - now;
+
+  // Calculate hours, minutes, and seconds
+  var hours = Math.floor(timeDiff / (1000 * 60 * 60));
+  var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+  // Display the countdown
+  document.getElementById("countdown").innerHTML =
+    "The Item Resets In: <br />" +
+    hours +
+    "h " +
+    minutes +
+    "m " +
+    seconds +
+    "s";
+
+  // Update every second
+  setTimeout(updateCountdown, 1000);
+}
+
+// Initial call to start the countdown
+updateCountdown();
+
 let times = 0;
 GAME.innerHTML = `
 <input type="text" name="guess" id="guess" onkeyup="tooltip()"  onkeypress="handleKeyPress(event)" />
@@ -42,13 +75,12 @@ function handleKeyPress(event) {
 }
 
 function getRandomIndex() {
-  /*
   const today = new Date();
   const seed = today.toISOString().slice(0, 10);
   const randomIndex = parseInt(seed.replace(/\D/g, ""), 10) % items.length;
   return randomIndex;
-  */
-  return Math.floor(Math.random() * items.length);
+
+  //return Math.floor(Math.random() * items.length);
 }
 
 function guess() {
@@ -417,6 +449,6 @@ function winfirst() {
   old.style.height = "0px";
   old.style.overflow = "hidden";
 
-  stats.innerHTML += `You got it in ${times} tries`;
+  stats.innerHTML += `You got it in ${times} tries!!!`;
   stats.style.opacity = "1";
 }
